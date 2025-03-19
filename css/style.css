@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+   }
+
+body {
+    background-color: rgb(32, 39, 62);
+}
+
+h1 {
+    font-size: 100px;
+    text-align: center;
+    color: #01C38D;
+}
