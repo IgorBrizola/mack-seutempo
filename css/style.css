@@ -1,23 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --verde-principal: #01C38D;
     --azul-medio: #132D46;
+    --azul-medio-claro: #191e294d;
     --azul-escuro: #191E29;
     --cinza-texto: #696E79;
     --verde-escuro: #002E2D;
     --branco: #edefe8;
     --roxo: #8a4488;
-    --gradient-verde-preto: linear-gradient(90deg, var(--azul-medio) 0%, var(--verde-principal) 50%, var(--azul-medio) 100%);
-
+    --borda-card: rgba(141, 141, 141, 0.202);
+    --gradient-verde-fade: linear-gradient(90deg, var(--azul-escuro) 0%, var(--verde-principal) 50%, var(--azul-escuro) 100%);
   }
   
 
 *{
     text-decoration: none;
     list-style: none;
-    font-family: Poppins ,Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", "Poppins" , sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body {
@@ -31,7 +35,7 @@ body {
   .background-blur {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: -1;
   }
   
   .blur-circle-1,
@@ -94,58 +98,301 @@ body {
     width: 100%;
   }
 
- button {
-    width: 120px;
-    height: 40px;
-    cursor: pointer;
-    color: var(--cinza-texto);
-    font-size: 17px;
-    border-radius: 1rem;
-    border: none;
-    position: relative;
-    background: var(--azul-escuro);
-    transition: 0.1s;
-  }
 
-  button:hover {
-    transform: scale(1) rotate(2deg);
-    color: var(--branco);
-    background: radial-gradient( circle farthest-corner at 10% 20%,  var(--verde-principal) 17.8%, var(--verde-principal) 100.2% );
-    transition: 0.2s;
-  }
-  
-  button::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  var(--verde-principal) 17.8%, var(--verde-principal) 100.2% );
-    filter: blur(15px);
-    z-index: -1;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
+button {
+  cursor: pointer;
+  position: relative;
+  padding: 5px 20px;
+  font-size: 18px;
+  color: var(--verde-principal);
+  border: 1px solid var(--verde-principal);
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px var(--verde-principal);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: var(--verde-principal);
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover::before {
+  scale: 3;
+}
+
+button:hover {
+  color: var(--branco);
+  scale: 1.1;
+  box-shadow: 0 0px 20px var(--verde-principal);
+}
+
+button:active {
+  scale: 1;
+}
   
 .section-hero {
-  background-color: #55c301;
   display: flex;
   justify-content: center;
-
   width: 1280px;
   height: 100vh;
 }
 
 .container-hero {
-  background-color: #c32e01;
   width: 1200px;
   height: 100vh;
+  display: flex;
 }
+
+.container-hero .slogan {
+  width: 400px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding-inline: 10px;
+}
+
+.container-hero .slogan .divisor{
+  width: 350px;
+  height: 0px;
+}
+
+.container-hero .slogan .divisor hr {
+  border: none;
+  height: 4px; 
+  background: var(--gradient-verde-fade);
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  border-radius: 60px;
+}
+
+.container-hero .slogan h1{
+  color: var(--branco);
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 0.1;
+}
+
+.container-hero .slogan h1 span{
+  color: var(--verde-principal);
+  font-weight: 800;
+}
+
+.container-hero .slogan p{
+  position: relative;
+  color: var(--cinza-texto);
+  font-size: 14px;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.container-hero .slogan p:hover {
+  color:  var(--branco);
+}
+
+.container-hero .beneficios {
+  width: 600px;
+  height: 200px;
+}
+
+.container-hero .beneficios .items{
+  height: 100px;
+  display: flex;
+  gap: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.container-hero .beneficios .items .item{
+  width: 500px;
+  height: 100px;
+  gap: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.container-hero .beneficios .items .textos h2{
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--branco);
+}
+
+.container-hero .beneficios .items .textos p{
+  font-size: 12px;
+  color: var(--cinza-texto);
+}
+
+.beneficios .items .item .icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: var(--verde-principal);
+  background-color: var(--azul-medio);
+}
+
+.beneficios .items .item:hover {
+  transform: scale(1) rotate(2deg);
+}
+
+
+.container-hero .cadastro {
+  width: 600px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ .buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+ .buttons .item{
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.container-hero .passos {
+  width: 600px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: initial;
+}
+
+.container-hero .passos .card {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 450px;
+  padding: 20px;
+  background-color: var(--azul-medio);
+  border-radius: 20px;
+}
+
+.container-hero .passos .card .carrosel{
+  width: 450px;
+  height: 100px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid var(--borda-card);
+  background-color: var(--azul-medio-claro);
+  transition: all 0.3s ease-in-out;
+}
+
+.container-hero .passos .card .carrosel .textos{
+  line-height: 1.0;
+}
+
+.container-hero .passos .card .carrosel .textos h3{
+  color: var(--branco);
+  font-weight: 800;
+}
+
+.container-hero .passos .card .carrosel .textos p{
+  color: var(--cinza-texto);
+}
+
+.container-hero .passos .card .carrosel .container-ponto{
+  width: 50px;
+  display: flex;
+  gap: 10px;
+}
+
+.container-hero .passos .card .carrosel .ponto{
+  width: 10px;
+  height: 10px;
+  background-color: var(--cinza-texto);
+  border-radius: 9999px;
+}
+
+.container-hero .passos .card .carrosel .ponto1{
+  width: 10px;
+  height: 10px;
+  background-color: var(--verde-principal);
+  border-radius: 9999px;
+}
+
+ .container-hero .passos .card .items{
+  width: 500px;
+  height: 500px;
+} 
+
+.container-hero .passos .card .item{
+  height: 80px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+} 
+
+.container-hero .passos .card .item .icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--verde-principal);
+  background-color: var(--azul-escuro);
+} 
+
+.container-hero .passos .card .item .icon span{
+font-weight: bold;
+} 
+
+.container-hero .passos .card .item .conteudo{
+  width: 450px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border: 1px solid var(--borda-card);
+  padding: 5px;
+  background-color: var(--azul-medio-claro);
+} 
+
+.container-hero .passos .card .item .conteudo p{
+  color: var(--cinza-texto);
+  transition: all 0.3s ease-in-out;
+} 
+
+.container-hero .passos .card .item .conteudo p:hover{
+  color: var(--branco);
+} 
 
 .section-como-funciona {
   background-color: #c3b601;
   display: flex;
   justify-content: center;
-
   width: 1280px;
   height: 100vh;
 }
@@ -268,7 +515,7 @@ footer {
 .divisor hr {
   border: none;
   height: 2px; 
-  background: var(--gradient-verde-preto);
+  background: var(--gradient-verde-fade);
   width: 100%;
   margin: 0 auto;
   display: block;
@@ -278,12 +525,11 @@ footer {
 .texto-efeito {
   position: relative;
   color: var(--cinza-texto);
-  font-size: 14px;
+  font-size: 16px;
   transition: color 0.3s ease;
   padding-bottom: 4px;
   display: inline-block;
 }
-
 
 .texto-efeito:hover {
   color:  var(--verde-principal);
@@ -308,36 +554,8 @@ footer {
   width: 100%;
 }
 
-.texto-efeito {
-  position: relative;
-  color: var(--cinza-texto);
-  font-size: 14px;
-  transition: color 0.3s ease;
-  padding-bottom: 4px;
-  display: inline-block;
-}
-
-.texto-efeito:hover {
-  color:  var(--verde-principal);
-}
-
 .texto-efeito span {
   position: relative;
-}
-
-.texto-efeito::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 0;
-  background-color: var(--verde-principal);
-  transition: 0.3s ease;
-}
-
-.texto-efeito:hover::after {
-  width: 100%;
 }
 
 .texto-efeito .seutempo {
