@@ -22,6 +22,11 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    font-style: normal;
+}
+
+a {
+  color: var(--verde-principal);
 }
 
 body {
@@ -134,6 +139,10 @@ button:hover {
   color: var(--branco);
   scale: 1.1;
   box-shadow: 0 0px 20px var(--verde-principal);
+}
+
+button:hover a{
+  color: var(--branco);
 }
 
 button:active {
@@ -380,12 +389,13 @@ font-weight: bold;
   background-color: var(--azul-medio-claro);
 } 
 
-.container-hero .passos .card .item .conteudo p{
+.container-hero .passos .card .item .conteudo{
   color: var(--cinza-texto);
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 } 
 
-.container-hero .passos .card .item .conteudo p:hover{
+.container-hero .passos .card .item .conteudo:hover{
   color: var(--branco);
 } 
 
