@@ -483,3 +483,64 @@ body {
 .texto-efeito span {
   position: relative;
 }
+
+
+button {
+  cursor: pointer;
+  position: relative;
+  padding: 5px 20px;
+  font-size: 18px;
+  color: var(--verde-principal);
+  border: 1px solid var(--verde-principal);
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px var(--verde-principal);
+}
+
+buttons::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: var(--verde-principal);
+  transition: all 0.3s ease-in-out;
+}
+
+buttons:hover::before {
+  scale: 3;
+}
+
+buttons:hover {
+  color: var(--branco);
+  scale: 1.1;
+  box-shadow: 0 0px 20px var(--verde-principal);
+}
+
+buttons:hover a{
+  color: var(--branco);
+}
+
+buttons:active {
+  scale: 1;
+}
+  
+ .buttons{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin: 10px;
+}
+
+ .buttons .item{
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}

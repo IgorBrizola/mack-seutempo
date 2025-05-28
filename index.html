@@ -7,6 +7,11 @@
     <meta name="author" content="Igor Rodrigues Brizola, Heitor Assis Duenhas" >
     <meta name="description" content="Seu tempo">
     <meta name="keywords" content="sites, web, desenvolvimento">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -36,9 +41,9 @@
                            
               
                     <div class="buttons">
-                        <button>
+                        <button id="btnLogin">
                             <div class="item">
-                               <a href="/login.html"><span>Entrar</span></a>
+                            <span>Entrar</span>
                                 <span class="material-symbols-outlined">
                                     login
                                 </span>
@@ -215,31 +220,209 @@
 
     </section>
 
-    <!-- <section class="section-como-funciona" id="como-funciona">
+    <section class="section-como-funciona" id="como-funciona">
 
-        <div class="container-como-funciona">
-            <h1>Como funciona</h1>
-        </div>
+      <div class="container-como-funciona">
+  <h1>Como Funciona</h1>
+  <p>Um processo simples que conecta profissionais e clientes com eficiência e sem taxas.</p>
+
+<div class="cards-funciona">
+  <div class="card-funciona">
+    <div class="icon-number">
+      <div class="icon"><span class="material-symbols-outlined">visibility</span></div>
+      <div class="number">1</div>
+    </div>
+    <h3>Acesso Justo</h3>
+    <p>Todos têm oportunidades iguais de se conectar, independentemente da visibilidade.</p>
+  </div>
+
+  <div class="card-funciona">
+    <div class="icon-number">
+      <div class="icon"><span class="material-symbols-outlined">money_off</span></div>
+      <div class="number">2</div>
+    </div>
+    <h3>Sem Taxas</h3>
+    <p>Fique com 100% do que você ganha. Nada de comissões injustas ou cobranças ocultas.</p>
+  </div>
+
+  <div class="card-funciona">
+    <div class="icon-number">
+      <div class="icon"><span class="material-symbols-outlined">handshake</span></div>
+      <div class="number">3</div>
+    </div>
+    <h3>Match Direto</h3>
+    <p>Profissionais e clientes se conectam diretamente, sem intermediários.</p>
+  </div>
+
+  <div class="card-funciona">
+    <div class="icon-number">
+      <div class="icon"><span class="material-symbols-outlined">event_available</span></div>
+      <div class="number">4</div>
+    </div>
+    <h3>Reserva Segura</h3>
+    <p>Um sistema de agendamento seguro e transparente para ambas as partes.</p>
+  </div>
+</div>
+
+</div>
+
 
     </section>
 
     <section class="section-profissionais" id="profissionais">
+  <div class="container-profissionais">
+    <div class="header-profissionais">
+      <span class="tag-verde">Para Profissionais</span>
+      <h1>Assuma o Controle da Sua Carreira</h1>
+      <p>Junte-se a milhares de profissionais que estão expandindo seus negócios sem taxas de plataforma ou comissões.</p>
 
-        <div class="container-profissionais">
-            <h1>Para Profissionais</h1>
+      <div class="filtros">
+        <span>Elétrica</span>
+        <span>Encanamento</span>
+        <span>Design</span>
+        <span>Coaching</span>
+        <span>Ensino</span>
+        <span>Consultoria</span>
+        <span>Programação</span>
+        <span>Marketing</span>
+      </div>
+    </div>
 
+    <div class="cards-beneficios">
+      <div class="card-beneficio">
+        <span class="material-symbols-outlined icon-beneficio">money_off</span>
+        <h3>Sem Taxas de Plataforma</h3>
+        <p>Fique com 100% dos seus ganhos, sem tarifas escondidas ou comissões.</p>
+      </div>
+      <div class="card-beneficio">
+        <span class="material-symbols-outlined icon-beneficio">visibility</span>
+        <h3>Alta Visibilidade</h3>
+        <p>Seja descoberto por clientes que procuram exatamente suas habilidades.</p>
+      </div>
+      <div class="card-beneficio">
+        <span class="material-symbols-outlined icon-beneficio">schedule</span>
+        <h3>Cadastro Rápido</h3>
+        <p>Crie seu perfil profissional em poucos minutos e comece a receber solicitações.</p>
+      </div>
+      <div class="card-beneficio">
+        <span class="material-symbols-outlined icon-beneficio">location_on</span>
+        <h3>Área de Atuação Flexível</h3>
+        <p>Escolha onde deseja trabalhar e atenda somente dentro da sua zona de interesse.</p>
+      </div>
+    </div>
+
+    <div class="avaliacoes">
+      <div class="card-avaliacao">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva" />
+        <div>
+          <h4>Carlos Silva</h4>
+          <span class="profissao">Eletricista</span>
+          <div class="estrelas">★★★★★</div>
+          <p>Desde que entrei no Seu Tempo, consegui definir meus próprios preços e manter tudo o que ganho. A plataforma transformou meu negócio.</p>
+        </div>
+      </div>
+
+      <div class="card-avaliacao">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Mariana Costa" />
+        <div>
+          <h4>Mariana Costa</h4>
+          <span class="profissao">Personal Trainer</span>
+          <div class="estrelas">★★★★★</div>
+          <p>A flexibilidade para gerenciar meus horários e a conexão direta com os clientes tornam o Seu Tempo diferente de qualquer outra plataforma.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-box">
+      <h3>Adicione Suas Habilidades</h3>
+      <div class="tags-selecionadas" id="tagsSelecionadas"></div>
+      <div class="input-skill">
+        <input id="skillInput" type="text" placeholder="Digite uma habilidade..." />
+        <button id="addSkillBtn">Adicionar</button>
+      </div>
+      <div class="tags-populares">
+        <span>Fotografia</span>
+        <span>Design Gráfico</span>
+        <span>Redação</span>
+        <span>Edição de Vídeo</span>
+        <span>Mídias Sociais</span>
+        <span>Desenvolvimento Web</span>
+        <span>UX Design</span>
+        <span>Aplicativos Mobile</span>
+        <span>Análise de Dados</span>
+      </div>
+    </div>
+
+    <div class="botao-profissional">
+      <button  id="btnProfissional">
+        <span class="material-symbols-outlined">how_to_reg</span>
+        <span>Cadastrar-se como Profissional</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+  <section class="section-clientes" id="clientes">
+  <div class="container-clientes">
+    <div class="header-clientes">
+      <span class="tag-verde">Para Clientes</span>
+      <h1>Encontre o Profissional Ideal</h1>
+      <p>Descubra profissionais altamente avaliados na sua região e agende com confiança.</p>
+    </div>
+
+    <div class="conteudo-clientes">
+      <!-- Filtros -->
+      <div class="filtros-clientes">
+        <h3>Buscar Serviços</h3>
+        <input type="text" id="servicoInput" placeholder="Qual serviço você precisa?">
+        <input type="text" id="localInput" placeholder="Sua localização">
+        <button onclick="buscarProfissionais()">Buscar</button>
+
+        <h4>Filtros</h4>
+        <div class="filtro-rating">
+          <span>Avaliação:</span>
+          <label><input type="checkbox" value="4"> 4+</label>
+          <label><input type="checkbox" value="4.5"> 4.5+</label>
+          <label><input type="checkbox" value="4.8"> 4.8+</label>
         </div>
 
-    </section>
-
-    <section class="section-clientes" id="clientes">
-
-        <div class="container-clientes">
-            <h1>Para Clientes</h1>
-
+        <div class="filtro-disponibilidade">
+          <span>Disponibilidade:</span>
+          <label><input type="radio" name="disponibilidade" value="hoje"> Hoje</label>
+          <label><input type="radio" name="disponibilidade" value="semana"> Esta semana</label>
         </div>
 
-    </section>
+        <div class="filtro-distancia">
+          <span>Distância:</span>
+          <input type="range" min="1" max="50" value="10" id="filtroDistancia">
+          <span id="distanciaValor">10km</span>
+        </div>
+
+        <button onclick="limparFiltros()">Limpar Filtros</button>
+      </div>
+
+      <!-- Resultados + Mapa -->
+      <div class="resultados-clientes">
+        <div class="mapa-clientes">
+          <div id="map" style="height: 250px; width: 100%; border-radius: 20px;"></div>
+          <p style="text-align:center; color: var(--cinza-texto);">Mapa interativo exibindo profissionais próximos</p>
+        </div>
+
+        <div class="lista-profissionais" id="listaProfissionais"></div>
+
+        <div class="botao-ver-mais">
+          <button onclick="verMaisProfissionais()">Ver Mais Profissionais</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="section-sobre" id="sobre-nos">
 
@@ -247,7 +430,7 @@
             <h1>Sobre Nós</h1>
         </div>
 
-    </section>   -->
+    </section>   
 
     <section class="section-contato" id="contato">
 
@@ -325,5 +508,8 @@
         
 
     </footer>
+
+       <script src="script.js"></script>
+
 </body>
 </html>
