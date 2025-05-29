@@ -8,9 +8,9 @@
     <meta name="description" content="Seu tempo">
     <meta name="keywords" content="sites, web, desenvolvimento">
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -36,7 +36,9 @@
                         <a class="item" href="#como-funciona"><div class="texto-efeito"><span>Como funciona</span></div></a>               
                         <a class="item" href="#profissionais"><div class="texto-efeito"><span>Para Profissionais</span></div></a>               
                         <a class="item" href="#clientes"><div class="texto-efeito"><span>Para Clientes</span></div></a>               
-                        <a class="item" href="#sobre-nos"><div class="texto-efeito"><span>Sobre Nós</span></div></a>      
+                        <a class="item" href="#sobre-nos"><div class="texto-efeito"><span>Sobre Nós</span></div></a>  
+                        <a class="item" href="explicacaoVideo.html"><div class="texto-efeito"><span>Video Explicativo</span></div></a>      
+    
                     </div>   
                            
               
@@ -131,13 +133,13 @@
             <div class="cadastro">
     
                 <div class="buttons">
-                    <button>
+                    <button id="btnProfissional" onclick="redirecionarAoClicar()">
                         <div class="item">
                             <span class="material-symbols-outlined">trip</span>
                             <span>Sou Profissional</span>
                         </div>
                     </button>
-                    <button>
+                    <button id="btnCliente" onclick="redirecionarAoClicar()">
                         <div class="item">
                             <span class="material-symbols-outlined">person</span>
                             <span>Eu preciso de serviço</span>
@@ -159,6 +161,7 @@
                                 <div class="ponto"></div>
                                 <div class="ponto"></div>
                             </div>
+                            
                             <div class="textos">
                                 <h3>Como funciona o Seu Tempo</h3>
                                 <p>Nossa plataforma conecta você diretamente com clientes ou profissionais, sem taxas de intermediários.</p>
@@ -223,8 +226,12 @@
     <section class="section-como-funciona" id="como-funciona">
 
       <div class="container-como-funciona">
-  <h1>Como Funciona</h1>
-  <p>Um processo simples que conecta profissionais e clientes com eficiência e sem taxas.</p>
+            <div class="header-como">
+              <span class="tag-verde-como">Como Funciona?</span>
+            <h1>Como Funciona?</h1>
+            <p>Um processo simples que conecta profissionais e clientes com eficiência e sem taxas.</p>
+          </div>
+
 
 <div class="cards-funciona">
   <div class="card-funciona">
@@ -354,7 +361,7 @@
     </div>
 
     <div class="botao-profissional">
-      <button  id="btnProfissional">
+      <button  id="btnProfissionalCadastro" onclick="redirecionarAoClicar()">
         <span class="material-symbols-outlined">how_to_reg</span>
         <span>Cadastrar-se como Profissional</span>
       </button>
@@ -363,12 +370,7 @@
 </section>
 
 
-
-
-
-
-
-  <section class="section-clientes" id="clientes">
+<section class="section-clientes" id="clientes">
   <div class="container-clientes">
     <div class="header-clientes">
       <span class="tag-verde">Para Clientes</span>
@@ -377,62 +379,158 @@
     </div>
 
     <div class="conteudo-clientes">
-      <!-- Filtros -->
       <div class="filtros-clientes">
         <h3>Buscar Serviços</h3>
-        <input type="text" id="servicoInput" placeholder="Qual serviço você precisa?">
-        <input type="text" id="localInput" placeholder="Sua localização">
-        <button onclick="buscarProfissionais()">Buscar</button>
+        <input type="text" id="servicoInput" placeholder="Qual serviço você precisa?" />
+        <input type="text" id="localInput" placeholder="Sua localização" />
+        <button class="btn-buscar" onclick="buscarProfissionais()">Buscar</button>
+
+        <div class="divisor"></div>
 
         <h4>Filtros</h4>
         <div class="filtro-rating">
-          <span>Avaliação:</span>
           <label><input type="checkbox" value="4"> 4+</label>
           <label><input type="checkbox" value="4.5"> 4.5+</label>
           <label><input type="checkbox" value="4.8"> 4.8+</label>
         </div>
 
         <div class="filtro-disponibilidade">
-          <span>Disponibilidade:</span>
           <label><input type="radio" name="disponibilidade" value="hoje"> Hoje</label>
           <label><input type="radio" name="disponibilidade" value="semana"> Esta semana</label>
         </div>
 
         <div class="filtro-distancia">
-          <span>Distância:</span>
-          <input type="range" min="1" max="50" value="10" id="filtroDistancia">
+          <label>Distância:</label>
+          <input type="range" min="1" max="50" value="10" id="filtroDistancia" />
           <span id="distanciaValor">10km</span>
         </div>
 
-        <button onclick="limparFiltros()">Limpar Filtros</button>
+        <button class="btn-limpar" onclick="limparFiltros()">Limpar Filtros</button>
       </div>
 
-      <!-- Resultados + Mapa -->
       <div class="resultados-clientes">
         <div class="mapa-clientes">
-          <div id="map" style="height: 250px; width: 100%; border-radius: 20px;"></div>
-          <p style="text-align:center; color: var(--cinza-texto);">Mapa interativo exibindo profissionais próximos</p>
+          <div id="map"></div>
+          <p>Mapa interativo exibindo profissionais próximos</p>
         </div>
 
         <div class="lista-profissionais" id="listaProfissionais"></div>
 
         <div class="botao-ver-mais">
-          <button onclick="verMaisProfissionais()">Ver Mais Profissionais</button>
+          <button class="btn-vermais" onclick="verMaisProfissionais()">Ver Mais Profissionais</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-    <section class="section-sobre" id="sobre-nos">
 
-        <div class="container-sobre">
-            <h1>Sobre Nós</h1>
+<section class="section-sobre" id="sobre-nos">
+  <div class="container-sobre">
+    <div class="header-sobre">
+      <div class="linha-decorativa"></div>
+      <span class="tag-verde">Sobre Nós</span>
+      <h2>Nossa Missão</h2>
+      <p>Estamos construindo uma plataforma que coloca os profissionais em primeiro lugar, criando um mercado mais justo para todos.</p>
+    </div>
+
+    <div class="grid-missao">
+      <div class="missao-col-esquerda">
+        <div class="missao-box">
+          <div class="linha-conector"></div>
+          <div class="ponto"></div>
+          <div class="box-conteudo">
+            <div class="icone-box"><span class="material-symbols-outlined">favorite</span></div>
+            <h3>Empoderar Profissionais</h3>
+            <p>Acreditamos que os profissionais devem manter 100% do que ganham, sem taxas de plataforma que reduzam sua renda.</p>
+          </div>
         </div>
 
-    </section>   
+        <div class="missao-box">
+          <div class="linha-conector"></div>
+          <div class="ponto"></div>
+          <div class="box-conteudo">
+            <div class="icone-box"><span class="material-symbols-outlined">trending_up</span></div>
+            <h3>Tornar o Mercado mais Justo</h3>
+            <p>Ao remover comissões, criamos um ecossistema mais equilibrado que beneficia tanto os profissionais quanto os clientes.</p>
+          </div>
+        </div>
 
-    <section class="section-contato" id="contato">
+        <div class="missao-box">
+          <div class="linha-conector"></div>
+          <div class="ponto"></div>
+          <div class="box-conteudo">
+            <div class="icone-box"><span class="material-symbols-outlined">autorenew</span></div>
+            <h3>Transformar a Lógica das Plataformas</h3>
+            <p>Estamos desafiando o status quo das plataformas de marketplace ao colocar as pessoas antes dos lucros.</p>
+          </div>
+        </div>
+
+        <div class="visao-fundador">
+          <div class="icone-citacao">99</div>
+          <h4>Visão do Fundador</h4>
+          <blockquote>
+            “Criamos o Seu Tempo com uma ideia simples: e se construíssemos uma plataforma que colocasse os profissionais em primeiro lugar?
+            Ao eliminar comissões e dar controle total de volta aos prestadores de serviço, estamos criando um movimento por um trabalho mais justo.”
+          </blockquote>
+          <div class="fundador-info">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQE8nkbZIxK-1g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722893563771?e=1753920000&v=beta&t=RBVFVFbNG7lexh8flrFNUaflaKOquFOXOQzDF-o-v2o" alt="Igor Brizola">
+            <div>
+              <strong>Igor Brizola</strong><br>
+              Fundador & CEO
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="missao-col-direita">
+        <div class="comparacao">
+          <h3>Como Comparamos</h3>
+          <div class="comparacao-header">
+            <span>Plataformas Tradicionais</span>
+            <span class="seu-tempo">Seu Tempo</span>
+          </div>
+          <div class="comparacao-linha">
+            <span>Cobra 20–30% de comissão</span>
+            <span>0% de comissão – profissionais ficam com 100%</span>
+          </div>
+          <div class="comparacao-linha">
+            <span>Foco em quantidade de prestadores</span>
+            <span>Foco em qualidade e profissionais verificados</span>
+          </div>
+          <div class="comparacao-linha">
+            <span>Controle limitado do perfil profissional</span>
+            <span>Controle total sobre sua agenda, preços e raio de trabalho</span>
+          </div>
+        </div>
+
+        <div class="movimento">
+          <h3>Junte-se ao nosso movimento</h3>
+          <p>Seja você um profissional ou um cliente, faça parte da mudança.</p>
+          <div class="cartoes-movimento">
+            <div class="cartao">
+              <h4>Para Profissionais</h4>
+              <p>Junte-se a milhares de profissionais em nossa plataforma.</p>
+              <a href="#">Saiba mais →</a>
+            </div>
+            <div class="cartao">
+              <h4>Para Clientes</h4>
+              <p>Encontre os melhores profissionais com tarifas justas.</p>
+              <a href="#">Saiba mais →</a>
+            </div>
+          </div>
+          <div class="botao-movimento">
+            <button id="cadastreProfissional" onclick="redirecionarAoClicar()">Cadastre-se no Seu Tempo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+
+<section class="section-contato" id="contato">
 
         <div class="container-contato">
             <form>
@@ -496,7 +594,11 @@
                 <hr>
             </div>
 
+      
+
             <div class="texto-efeito">
+                <span>Igor Brizola & Heitor Duenhas</span>
+
                <span>© 2025 <span class="seutempo">SeuTempo™</span>. Todos os direitos reservados.</span>
             </div>
        
@@ -509,7 +611,6 @@
 
     </footer>
 
-       <script src="script.js"></script>
-
+       <script src="js/script.js"></script>
 </body>
 </html>

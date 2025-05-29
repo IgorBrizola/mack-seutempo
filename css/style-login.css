@@ -485,7 +485,7 @@ body {
 }
 
 
-button {
+.buttons button {
   cursor: pointer;
   position: relative;
   padding: 5px 20px;
@@ -500,7 +500,7 @@ button {
   box-shadow: 0px 0px 10px var(--verde-principal);
 }
 
-buttons::before {
+.buttons button::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -512,32 +512,32 @@ buttons::before {
   transition: all 0.3s ease-in-out;
 }
 
-buttons:hover::before {
+.buttons button:hover::before {
   scale: 3;
 }
 
-buttons:hover {
+.buttons button:hover {
   color: var(--branco);
   scale: 1.1;
   box-shadow: 0 0px 20px var(--verde-principal);
 }
 
-buttons:hover a{
+.buttons button:hover a{
   color: var(--branco);
 }
 
-buttons:active {
+.buttons button:active {
   scale: 1;
 }
   
- .buttons{
+.buttons button{
   display: flex;
   justify-content: center;
   align-items: start;
   margin: 10px;
 }
 
- .buttons .item{
+.buttons button .item{
   display: flex;
   justify-content: center;
   justify-content: center;
